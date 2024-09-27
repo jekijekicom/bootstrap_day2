@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar NodeJS</title>
+</head>
+<body>
+    <h2>JS Func</h2>
+    <p>Cara buat dan pake function di JavaScript</p>
+
+    <p id='demo'></p>
+
+    <p id="output1"></p>
+    <p id="output2"></p>
+    <p id="output3"></p>
+
+    <p id="aritmatika"></p>
+    <p id="komparasi"></p>
+    <p id="logika"></p>
+    <p id="assignment"></p>
+
+    <h2>Nilai IPK</h2>
+    <input type="number" name="ipk" id="ipk" min="0" max="4" step="0.1">
+    <!--manggil func dalam button-->
+    <button onclick="grade()">Cek Grade</button> 
+    <h2 id="grade"></h2>
+    <p id="loop"></p>
+
+    <script>
+        function grade() {
+            let ipk = parseFloat(document.getElementById('ipk').value);
+            let grade = (ipk > 3.5) ? 'Cumlaude' : (ipk < 3) ? 'Cukup' : 'Baik';
+
+            for(i = 1;i<=ipk;i++){
+                console.log(i);
+                document.getElementById('loop').innerHTML = 'Panjang loop: ' + i;
+            }
+
+            //munculin func ke dalam html
+            document.getElementById('grade').innerHTML = 'Grade: ' + grade;
+        }
+    </script>
+
+    <script>
+        function func(p1,p2) {
+            return p1*p2;
+        }
+        document.getElementById('demo').innerHTML = func(11,3);
+    </script>
+
+    <script>
+        let numbervar = 13;
+        let strvar = 'hello';
+        let boolvar = true;
+
+        document.getElementById('output1').innerHTML = 'nilai variable: ' + numbervar;
+        document.getElementById('output2').innerHTML = 'nilai variable: ' + strvar;
+        document.getElementById('output3').innerHTML = 'nilai variable: ' + boolvar;
+    </script>
+
+    <script>
+        //aritmatika
+        let a = 10;
+        let b = 5;
+        let hasilaritmatika = `
+            tambah: ${a+b}<br>
+            kurang: ${a-b}<br>
+            kali: ${a*b}<br>
+            bagi: ${a/b}<br>
+            modulus: ${a%b}<br>
+            pangkat: ${a**b}<br>
+            increment: ${++a}<br>
+            decrement: ${--b}`;
+        document.getElementById('aritmatika').innerHTML = hasilaritmatika;
+
+        //komparasi
+        let hasilkomparasi = `
+            equal: ${a==b}<br>
+            not equal: ${a!=b}<br>
+            strict equal: ${a===b}<br>
+            strict not equal: ${a!==b}<br>
+            lebih dari: ${a>b}<br>
+            kurang dari: ${a<b}<br>
+            lebih besar atau sama dengan : ${a>=b}<br>
+            kurang dari atau sama dengan: ${a<=b}<br>`;
+        document.getElementById('komparasi').innerHTML = 'penjelasan komparasi<br> ' + hasilkomparasi;
+
+        //logika
+        let a1 = true;
+        let b1 = false;
+        let hasillogika = `
+            AND: ${a1 && b1}<br>
+            OR: ${a1 || b1}<br>
+            NOT: ${!a1}<br>
+            Ternary: ${a1 ? 'true':'false'}`;
+        document.getElementById('logika').innerHTML = 'Penjelasan Logika: <br>' + hasillogika;
+
+        //assignment
+        let c = 10;
+        let hasilassignment = `
+            Penambahan Assignment: ${c += 5}<br>
+            Pengurangan Assignment: ${c -= 5}<br>
+            Perkalian Assignment: ${c *= 5}<br>
+            Pembagian Assignment: ${c /= 5}<br>
+            Modulus Assignment: ${c %= 4}`;
+        document.getElementById('assignment').innerHTML = 'Penjelasan Assignment: <br>' + hasilassignment;
+    </script>
+</body>
+</html>

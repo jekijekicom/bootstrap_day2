@@ -1,0 +1,33 @@
+const http = require('http');
+const fs = require('fs');
+const path = require('path');
+
+const hostname = '127.0.0.1';
+const port = 3000;
+
+const server = http.createServer((req, res) => {
+    fs.readFile(path.join(__dirname, 'javascript.html'), (err, data) => {
+        res.writeHead(200, {'Content-type': 'text/html'});
+        res.end(data);
+    });
+});
+
+server.listen(port, hostname, () => {
+    console.log(`server berhasil jalan di http://${hostname}:${port}`);
+});
+
+
+// logik
+// let grade;
+// if (ipk > 3.5) {
+//     grade = 'cumlaude';
+// } else if(ipk >= 3 && ipk <= 3.5) {
+//     grade = 'baik';
+// } else {
+//     grade = 'cukup';
+// };
+
+// code rapih
+let ipk = 3.8;
+let grade = (ipk > 3.5) ? 'Cumlaude' : (ipk < 3) ? 'cukup' : 'baik';
+console.log(ipk, grade);
